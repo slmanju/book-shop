@@ -10,12 +10,15 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { LoginService } from './services/login.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,10 @@ import { LoginService } from './services/login.service';
     FormsModule,
     MaterialModule
   ],
-  providers: [LoginService],
+  providers: [
+    LoginService,
+    AuthGuardService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit {
   private credentials = { username: '', password: '' };
   private loggedIn = false;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
     this.loggedIn = this.loginService.isLoggedIn();
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.credentials.username, this.credentials.password)
                     .subscribe((user) => {
                       this.loginService.setLoggedIn();
-                      location.reload();
+                      this.router.navigate(['/'])
+                                  .then(() => location.reload());
                     });
   }
 
