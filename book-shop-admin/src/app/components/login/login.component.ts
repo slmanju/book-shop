@@ -13,13 +13,16 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
+    if (this.loginService.isLoggedIn()) {
+      this.loggedIn = true;
+    }
   }
 
   onSubmit() {
-    console.log(this.credentials);
     this.loginService.login(this.credentials.username, this.credentials.password)
-                    .subscribe(() => {
-                      this.loggedIn = true;
+                    .subscribe((user) => {
+                      this.loginService.setLoggedIn();
+                      location.reload();
                     });
   }
 
