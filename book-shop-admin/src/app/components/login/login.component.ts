@@ -7,7 +7,7 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  private creadentails = { username: '', password: '' };
+  private credentials = { username: '', password: '' };
   private loggedIn = false;
 
   constructor(private loginService: LoginService) { }
@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loginService.login(this.creadentails.username, this.creadentails.password)
+    console.log(this.credentials);
+    this.loginService.login(this.credentials.username, this.credentials.password)
                     .subscribe(() => {
                       this.loggedIn = true;
                     });
