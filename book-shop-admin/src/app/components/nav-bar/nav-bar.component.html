@@ -1,2 +1,11 @@
-<mat-toolbar color="primary">Book Shop Admin</mat-toolbar>
+<mat-toolbar color="primary">
+    <h3>Book Shop Admin</h3>
+    <span class="spacer"></span>
+    <span [hidden]="!loggedIn">
+        <a mat-button>View Books</a>
+        <a mat-button>Add Book</a>
+        <a mat-button>Logout</a>
+    </span>
+    <button mat-button (click)="logIn()">Log-in</button>
+</mat-toolbar>
 
