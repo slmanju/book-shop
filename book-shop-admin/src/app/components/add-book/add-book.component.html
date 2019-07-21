@@ -1,1 +1,21 @@
-<p>add-book works!</p>
+<mat-card>
+    <mat-card-title>Add Book</mat-card-title>
+    <mat-card-content>
+        <form #addBookForm="ngForm" (ngSubmit)="onSubmit(addBookForm)">
+            <mat-form-field>
+                <input type="text" matInput placeholder="Title" 
+                       name="title" [(ngModel)]="book.title"
+                       required #title="ngModel">
+            </mat-form-field>
+            <mat-form-field>
+                <input type="text" matInput placeholder="Author" 
+                        name="author" [(ngModel)]="book.author"
+                        required #author="ngModel">
+            </mat-form-field>
+            <div class="button">
+                <button type="submit" mat-raised-button color="primary"
+                        [disabled]="!addBookForm.form.valid">Save</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
