@@ -1,9 +1,9 @@
 <mat-toolbar color="primary">
     <h3>Book Shop Admin</h3>
     <span class="spacer"></span>
-    <span [hidden]="!loggedIn">
-        <a mat-button>View Books</a>
-        <a mat-button>Add Book</a>
-        <a mat-button>Logout</a>
+    <span>
+        <a mat-button routerLink="view-books">View Books</a>
+        <a mat-button routerLink="add-book" [hidden]="!loggedIn">Add Book</a>
+        <a mat-button [hidden]="!loggedIn">Logout</a>
     </span>
 </mat-toolbar>

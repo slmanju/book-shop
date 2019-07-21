@@ -12,13 +12,17 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginService } from './services/login.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { HomeComponent } from './components/home/home.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
+import { ViewBooksComponent } from './components/view-books/view-books.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AddBookComponent,
+    ViewBooksComponent
   ],
   imports: [
     BrowserModule,
